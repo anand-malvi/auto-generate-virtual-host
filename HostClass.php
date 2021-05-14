@@ -37,6 +37,7 @@ class HostClass
         if (!$isVhostCreated) {
             showInfo('Something went wrong' . printNextLine());
             showInfo('Exiting the wizard.' . printNextLine());
+            printNextLine();
             exit();
         }
         $this->addNewHostToHostsFile();
@@ -57,7 +58,7 @@ class HostClass
     {
         $virtualHostFileUrl = $this->vhostAvailableSitePath .  $this->name . $this->extension;
         $fileContent = $this->getHostContent();
-        return hasWrittenFileContent($virtualHostFileUrl, $fileContent);
+        return hasWrittenFileContent($virtualHostFileUrl, $fileContent, $this->vhostAvailableSitePath);
     }
 
     /**

@@ -21,7 +21,12 @@ if (!function_exists('readline')) {
  * @return boolean
  * 
  */
-function hasWrittenFileContent($file, $content){
+function hasWrittenFileContent($file, $content, $path)
+{
+    if ( !is_writable($path) ) {
+        shell_exec('sudo sh -c \'echo "'. $content .'" >> ' . $file . '\'');
+        return true;
+    }
     $fp = fopen($file, 'w');
     fwrite($fp, $content);
     fclose($fp);
