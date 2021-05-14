@@ -4,7 +4,7 @@ Create a virtual host withing few seconds
 Name    : AGVH (Auto Generate Virtual Host)                  
 Version : 1.0                                                
                                                                
-Using this script user can create a new new                  
+Using this script user can create a new                
 Virtual host within a few seconds                            
                                                               
 How to Use:                                                  
