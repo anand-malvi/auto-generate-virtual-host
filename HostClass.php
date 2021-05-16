@@ -78,6 +78,9 @@ class HostClass
     {
         shell_exec("sudo a2ensite $this->name" . $this->extension);
         showInfo(' [ ' . $this->name . $this->extension . ' ] >>> Site enabled successfully' . printNextLine());
+        if ( strtolower($this->allowOverride) == 'y' ) {
+			shell_exec("sudo a2enmod rewrite");
+        }
         shell_exec("sudo systemctl reload apache2");
         showInfo(' Apache2 server restarted successfully' . printNextLine());
     }
